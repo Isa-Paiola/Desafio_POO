@@ -1,41 +1,54 @@
 class Pessoa{
+    #cadastro
     constructor(nome, especialidade) {
         // o constructor é um metodo tradicional
         this.nome = nome;
         this.especialidade = especialidade;
+        this.#cadastro = this.#cadastro;
     }
-    //metodo
-    apresentar () {
-        return `Olá, sou ${this.nome} e minha especialidade é ${this.especialidade}, e cuido das saúdes das crianças.`;
-    }
+ 
 }
 
 
 //herdou as infos da classe pessoa
+class Chef extends Pessoa{
+    apresentar(){
+        return `Olá, meu nome é ${this.nome} e minha especialidade é ${this.especialidade}, eu cuido de crianças. E também comando o Hospital Brasil.`;
+    }
+}
+
+class Vice extends Pessoa{
+    apresentando(){
+        return `Olá, meu nome é ${this.nome} e minha especialidade é ${this.especialidade}, eu cuido da sáude mental das pessoas. E também sou Vice no comando do Hospital Brasil.`;
+    }
+}
+
 class Funcionario extends Pessoa{
-    falar = () => (`Olá, sou ${this.nome} e minha profissão é ${this.especialidade}, eu cuido da saúde mentais das pessoas.`);
-    dizer = () => console.log(`Olá, sou ${this.nome} e minha especialidade é ${this.especialidade}, responsável por cuidar das grávidas e seus bebês.`);
-    explicar = () => console.log(`Olá, sou ${this.nome} e minha profissão é ${this.especialidade}, cuido dos hábitos alimentares das pessoas.`);
-    comentar = () => console.log(`Olá, sou ${this.nome} e minha especialidade é ${this.especialidade}, cuido da saúde bucal das pessoas.`);
-    explicando = () => console.log(`Olá, sou ${this.nome} e minha especialidade é ${this.especialidade},responsável por realizar cirurgias e tratamentos do sistema nervoso, central e periférico.`);
-    falando = () => console.log(`Olá, sou ${this.nome} e minha especialidade é ${this.especialidade}, responsável pelo coração e sistema cardiovascular.`);
+    falando(){
+        return `Olá, meu nome é ${this.nome} e minha especialidade é ${this.especialidade}, e eu trabalho no Hospital Brasil.`;
+    }
 }
 
 
-const Duda = new Funcionario("Duda", "Pediatria")
-const Isabela = new Funcionario("Isabela", "Psicologa")
-const Yasmin = new Funcionario("Yasmin", "Obstetria")
-const Leonardo = new Funcionario("Leonardo", "Nutricionista")
-const Lucas = new Funcionario("Lucas", "Dentista")
-const Felipe = new Funcionario("Felipe", "Neurocirurgia")
-const Vitor = new Funcionario("Vitor", "Cardiologista")
+const Duda = new Chef("Duda", "Pediatria", 1234)
+
+const Isabela = new Vice("Isabela", "Psicologa", 3455)
+
+const Yasmin = new Funcionario("Yasmin", "Obstetria", 5667)
+const Leonardo = new Funcionario("Leonardo", "Nutricionista", 8897)
+const Lucas = new Funcionario("Lucas", "Dentista", 2332)
+const Felipe = new Funcionario("Felipe", "Neurocirurgia", 5643)
+const Vitor = new Funcionario("Vitor", "Cardiologista", 4323)
 
 Duda.apresentar();
-Isabela.falar();
-Yasmin.dizer();
-Leonardo.explicar();
-Lucas.comentar();
-Felipe.explicando();
+
+
+Isabela.apresentando();
+
+Yasmin.falando();
+Leonardo.falando();
+Lucas.falando();
+Felipe.falando();
 Vitor.falando();
 
 
@@ -50,9 +63,9 @@ function exibir(mensagem) {
 
 
 exibir(Duda.apresentar());
-exibir(Isabela.falar());
-exibir(Yasmin.dizer());
-exibir(Leonardo.explicar());
-exibir(Lucas.comentar());
-exibir(Felipe.explicando());
+exibir(Isabela.apresentando());
+exibir(Yasmin.falando());
+exibir(Leonardo.falando());
+exibir(Lucas.falando());
+exibir(Felipe.falando());
 exibir(Vitor.falando());
